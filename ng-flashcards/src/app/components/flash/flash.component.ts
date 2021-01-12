@@ -26,26 +26,26 @@ export class FlashComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onToggleCard() {
+  onToggleCard(): void {
     this.toggleCard.emit(this.flash.id);
   }
 
-  deleteFlash() {
+  deleteFlash(): void {
     this.delete.emit(this.flash.id);
   }
 
-  editFlash() {
+  editFlash(): void {
     this.edit.emit(this.flash.id);
   }
 
-  markCorrect() {
+  markCorrect(): void {
     this.rememberedChange.emit({
       id: this.flash.id,
       flag: 'correct'
     });
   }
 
-  markIncorrect() {
+  markIncorrect(): void {
     this.rememberedChange.emit({
       id: this.flash.id,
       flag: 'incorrect'

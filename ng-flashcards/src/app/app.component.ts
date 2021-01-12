@@ -17,13 +17,12 @@ export class AppComponent {
     answer: ''
   };
   flashs$;
-  flashs;
 
   constructor(private flashService: FlashService) {
     this.flashs$ = this.flashService.flashs$;
   }
 
-  trackByFlashId(index, flash) {
+  trackByFlashId(index, flash): number {
     return flash.id;
   }
 
@@ -32,7 +31,7 @@ export class AppComponent {
     this.handleClear();
   }
 
-  handleClear() {
+  handleClear(): void {
     this.flash = {
       question: '',
       answer: '',
@@ -40,32 +39,32 @@ export class AppComponent {
     this.flashForm.reset();
   }
 
-  handleToggleCard(id) {
+  handleToggleCard(id): void {
     this.flashService.toggleFlash(id);
   }
 
-  handleDelete(id) {
+  handleDelete(id): void {
     this.flashService.deleteFlash(id);
   }
 
-  handleEdit(id) {
+  handleEdit(id): void {
     this.flash = this.flashService.getFlash(id);
     this.editing = true;
     this.editingId = id;
   }
 
-  handleUpdate() {
+  handleUpdate(): void {
     this.flashService.updateFlash(this.editingId, this.flash);
     this.handleCancel();
   }
 
-  handleCancel() {
+  handleCancel(): void {
     this.editing = false;
     this.editingId = undefined;
     this.handleClear();
   }
 
-  handleRememberedChange({id, flag}) {
+  handleRememberedChange({id, flag}): void {
     this.flashService.rememberedChange(id, flag);
   }
 

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {IFlash} from '../models/flash.model';
 import {BehaviorSubject} from 'rxjs';
 
-function getRandomNumber() {
+function getRandomNumber(): number {
   return Math.floor(Math.random() * 10000);
 }
 
@@ -33,7 +33,7 @@ export class FlashService {
   constructor() {
   }
 
-  addFlash(flash: { question: string, answer: string }) {
+  addFlash(flash: { question: string, answer: string }): void {
     this.flashs = [
       ...this.flashs, {
         ...flash,
@@ -44,7 +44,7 @@ export class FlashService {
     this.flashs$.next(this.flashs);
   }
 
-  toggleFlash(id: number) {
+  toggleFlash(id: number): void {
     const index = this.flashs.findIndex(flash => flash.id === id);
     this.flashs = [
       ...this.flashs.slice(0, index),
@@ -57,7 +57,7 @@ export class FlashService {
     this.flashs$.next(this.flashs);
   }
 
-  deleteFlash(id: number) {
+  deleteFlash(id: number): void {
     const index = this.flashs.findIndex(flash => flash.id === id);
     this.flashs = [
       ...this.flashs.slice(0, index),
@@ -68,7 +68,7 @@ export class FlashService {
 
   }
 
-  rememberedChange(id: number, flag: 'correct' | 'incorrect') {
+  rememberedChange(id: number, flag: 'correct' | 'incorrect'): void {
     const index = this.flashs.findIndex(flash => flash.id === id);
     this.flashs = [
       ...this.flashs.slice(0, index),
@@ -82,7 +82,7 @@ export class FlashService {
 
   }
 
-  updateFlash(id, flash: { question: string, answer: string }) {
+  updateFlash(id, flash: { question: string, answer: string }): void {
     const index = this.flashs.findIndex(f => f.id === id);
     this.flashs = [
       ...this.flashs.slice(0, index),
@@ -96,7 +96,7 @@ export class FlashService {
 
   }
 
-  getFlash(id: number) {
+  getFlash(id: number): any {
     const index = this.flashs.findIndex(flash => flash.id === id);
     return this.flashs[index];
   }

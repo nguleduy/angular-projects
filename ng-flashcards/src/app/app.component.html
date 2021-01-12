@@ -1,14 +1,14 @@
 <form #flashForm="ngForm">
   <h1 class="is-size-3">{{editing ? 'Edit' : 'Add New'}} Flash Card</h1>
   <div class="field">
-    <label class="label" for="">Question</label>
+    <label class="label">Question</label>
     <div class="control">
       <input required class="input" type="text" name="question" #questionEl="ngModel"
              [ngClass]="{'is-danger': questionEl.invalid && !questionEl.pristine}" [(ngModel)]="flash.question">
     </div>
   </div>
   <div class="field">
-    <label for="" class="label">Answer</label>
+    <label class="label">Answer</label>
     <div class="control">
       <input required class="input" type="text" name="answer" #answerEl="ngModel"
              [ngClass]="{'is-danger': answerEl.invalid && !answerEl.pristine}" [(ngModel)]="flash.answer">
